@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Village Community Management System</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1>Village Community Management System</h1>
+<p>Java + JSP + Servlets + PostgreSQL Application</p>
+
+<h2>🔷 Login Page</h2>
+<img src="../images/Screenshot 2025-11-24 190917.png" width="450"/>
+
+<h2>🔷 Register Page</h2>
+<img src="../images/Screenshot 2025-11-24 191159.png" width="450"/>
+
+<h2>🔷 Admin Dashboard</h2>
+<img src="../images/Dashbaord.png" width="450"/>
+
+</body>
+</html>
