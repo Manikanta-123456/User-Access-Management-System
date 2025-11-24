@@ -4,68 +4,70 @@
 ![Java](https://img.shields.io/badge/Java-17-orange?logo=java)
 ![JSP](https://img.shields.io/badge/JSP-JavaServer%20Pages-blue)
 ![Servlets](https://img.shields.io/badge/Servlets-Java%20EE-red)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-316192?logo=postgresql)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql)
 ![Tomcat](https://img.shields.io/badge/Tomcat-Server-yellow?logo=apache-tomcat)
 ![Maven](https://img.shields.io/badge/Maven-Build-6f42c1?logo=apache-maven)
 
 ---
 
 ## 📌 Overview  
-The **User Access Management System (UAMS)** is a web-based Java application used to manage access to software applications inside an organization.  
-It includes **Sign-Up**, **Login**, **Software Management**, **Access Requests**, and an **Approval Workflow** with strict **role-based access control**.
+The **User Access Management System (UAMS)** is a complete web-based Java application to manage controlled access to software applications inside an organization.  
+It supports **User Registration**, **Login**, **Role-Based Redirection**, **Software Management**, **Access Request Workflow**, and **Manager Approval System**.
+
+This project is built using **Java Servlets**, **JSP**, **Apache Tomcat**, and **PostgreSQL**, following a clean MVC-style structure.
 
 ---
 
 ## 🚀 Features
 
 ### 🔐 Authentication & Authorization
-- User Sign-Up (Employee)
-- Login with Session Management
-- Role-based dashboard routing
+- Employee Sign-Up  
+- Login with session handling  
+- Role-based home page redirection  
 
-### 👥 User Roles  
-| Role | Features |
-|------|----------|
-| **Employee** | Signup, Login, Request Access |
-| **Manager** | Login, View Pending Requests, Approve/Reject |
-| **Admin** | Create Software, Full Access, All Manager + Employee features |
+### 👥 User Roles & Permissions  
+| Role | Actions |
+|------|---------|
+| **Employee** | Sign up, Log in, Request Access |
+| **Manager** | View pending requests, Approve/Reject |
+| **Admin** | Add software, Full access, Manager + Employee rights |
 
 ---
 
 ## 🧠 System Modules
 
-### 1️⃣ **User Registration (SignUpServlet)**
-- Default role = Employee  
-- Stores user in database  
-- Redirects to login page  
+### 1️⃣ **Sign-Up System (SignUpServlet)**  
+- Default role = *Employee*  
+- Stores user into database  
+- Redirects to login  
 
-### 2️⃣ **User Login (LoginServlet)**
-- Validates credentials  
+### 2️⃣ **Login System (LoginServlet)**  
+- Validates user credentials  
 - Creates session  
-- Redirects based on role  
+- Redirects to pages based on role  
 
-### 3️⃣ **Software Management (Admin Only)**
+### 3️⃣ **Software Management (Admin Only)**  
 Admins can:
 - Add new software  
-- Select access levels (Read / Write / Admin)  
+- Set access levels (Read / Write / Admin)  
 
-### 4️⃣ **Access Request System (Employee)**
+### 4️⃣ **Employee Access Request System (RequestServlet)**  
 Employees can:
 - Choose software  
-- Choose access level  
+- Select access type  
 - Provide reason  
 
-### 5️⃣ **Approval System (Manager)**
-Managers:
-- View all pending requests  
-- Approve or reject  
-- Status gets updated  
+### 5️⃣ **Manager Approval System (ApprovalServlet)**  
+Managers can:
+- View pending requests  
+- Approve or Reject  
+- Status updated in database  
 
 ---
 
 ## 🗄️ Database Schema (PostgreSQL)
 
-### ✔ `users` table
+### ✔ **users**
 | Column | Type |
 |--------|------|
 | id | Serial PK |
@@ -73,7 +75,7 @@ Managers:
 | password | Text |
 | role | Text |
 
-### ✔ `software` table
+### ✔ **software**
 | Column | Type |
 |--------|------|
 | id | Serial PK |
@@ -81,7 +83,7 @@ Managers:
 | description | Text |
 | access_levels | Text |
 
-### ✔ `requests` table
+### ✔ **requests**
 | Column | Type |
 |--------|------|
 | id | Serial PK |
@@ -94,36 +96,14 @@ Managers:
 ---
 
 ## 🛠️ Tech Stack
-- **Java 17**
 - **Java Servlets**
 - **JSP**
 - **PostgreSQL**
 - **Apache Tomcat**
-- **HTML / CSS / JavaScript**
 - **Maven**
+- **HTML / CSS / JavaScript**
 
 ---
 
 ## 📂 Project Structure
 
-User-Access-Management-System/
-│── src/
-│ └── main/
-│ └── java/
-│ ├── SignUpServlet.java
-│ ├── LoginServlet.java
-│ ├── SoftwareServlet.java
-│ ├── RequestServlet.java
-│ └── ApprovalServlet.java
-│── webapp/
-│ ├── signup.jsp
-│ ├── login.jsp
-│ ├── createSoftware.jsp
-│ ├── requestAccess.jsp
-│ └── pendingRequests.jsp
-│── sql/
-│ └── database_schema.sql
-│── docs/
-│ └── requirements_document.pdf
-│── pom.xml
-└── README.md
