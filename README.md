@@ -106,3 +106,24 @@ Managers:
 
 ## 📂 Project Structure
 
+User-Access-Management-System/
+│── src/
+│ └── main/
+│ └── java/
+│ ├── SignUpServlet.java
+│ ├── LoginServlet.java
+│ ├── SoftwareServlet.java
+│ ├── RequestServlet.java
+│ └── ApprovalServlet.java
+│── webapp/
+│ ├── signup.jsp
+│ ├── login.jsp
+│ ├── createSoftware.jsp
+│ ├── requestAccess.jsp
+│ └── pendingRequests.jsp
+│── sql/
+│ └── database_schema.sql
+│── docs/
+│ └── requirements_document.pdf
+│── pom.xml
+└── README.md
