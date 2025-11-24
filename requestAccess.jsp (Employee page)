@@ -1,0 +1,48 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="jakarta.servlet.http.HttpSession" %>
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Request Access</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<%
+    HttpSession session = request.getSession(false);
+    String role = session != null ? (String) session.getAttribute("role") : null;
+    if (role == null || !"Employee".equals(role)) {
+%>
+    <h3>Access Denied - Employees only</h3>
+    <p><a href="<%=request.getContextPath()%>/login">Login</a></p>
+<%
+        return;
+    }
+%>
+
+    <h2>Request Access</h2>
+    <c:if test="${not empty param.success}">
+        <div class="success">Request submitted.</div>
+    </c:if>
+
+    <form method="post" action="${pageContext.request.contextPath}/request">
+        <label>Software:
+            <select name="softwareId">
+                <%= request.getAttribute("softwareList") != null ? request.getAttribute("softwareList") : "<option value=''>No software</option>" %>
+            </select>
+        </label><br/><br/>
+        <label>Access Type:
+            <select name="accessType">
+                <option value="Read">Read</option>
+                <option value="Write">Write</option>
+                <option value="Admin">Admin</option>
+            </select>
+        </label><br/><br/>
+        <label>Reason:<br/><textarea name="reason" rows="4" cols="50"></textarea></label><br/><br/>
+        <button type="submit">Submit Request</button>
+    </form>
+
+    <p><a href="<%=request.getContextPath()%>/">Home</a></p>
+
+</body>
+</html>
