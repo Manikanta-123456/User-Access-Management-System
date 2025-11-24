@@ -1,109 +1,42 @@
-# 🧩 User Access Management System  
-### Java Servlets • JSP • PostgreSQL • Maven • Tomcat
+# User Access Management System (UAMS)
 
-![Java](https://img.shields.io/badge/Java-17-orange?logo=java)
-![JSP](https://img.shields.io/badge/JSP-JavaServer%20Pages-blue)
-![Servlets](https://img.shields.io/badge/Servlets-Java%20EE-red)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql)
-![Tomcat](https://img.shields.io/badge/Tomcat-Server-yellow?logo=apache-tomcat)
-![Maven](https://img.shields.io/badge/Maven-Build-6f42c1?logo=apache-maven)
+**Java Servlets • JSP • PostgreSQL • Maven • Tomcat**
 
----
+A simple role-based User Access Management System where Employees can request access to software, Managers approve/reject requests, and Admins create software entries.
 
-## 📌 Overview  
-The **User Access Management System (UAMS)** is a complete web-based Java application to manage controlled access to software applications inside an organization.  
-It supports **User Registration**, **Login**, **Role-Based Redirection**, **Software Management**, **Access Request Workflow**, and **Manager Approval System**.
+## Features
+- User Registration (default role: Employee)
+- Login with role-based redirection
+- Admin: create software entries with access levels
+- Employee: request access to software (Read/Write/Admin)
+- Manager: view pending requests and approve/reject
+- Passwords hashed with BCrypt
 
-This project is built using **Java Servlets**, **JSP**, **Apache Tomcat**, and **PostgreSQL**, following a clean MVC-style structure.
+## Tech Stack
+- Java 17+
+- Java Servlets + JSP
+- PostgreSQL
+- Apache Tomcat
+- Maven
+- BCrypt for password hashing
 
----
+## Project Structure
+(see repository file tree)
 
-## 🚀 Features
+## SQL
+Database schema is in `sql/database_schema.sql`. Run it to create tables.
 
-### 🔐 Authentication & Authorization
-- Employee Sign-Up  
-- Login with session handling  
-- Role-based home page redirection  
-
-### 👥 User Roles & Permissions  
-| Role | Actions |
-|------|---------|
-| **Employee** | Sign up, Log in, Request Access |
-| **Manager** | View pending requests, Approve/Reject |
-| **Admin** | Add software, Full access, Manager + Employee rights |
-
----
-
-## 🧠 System Modules
-
-### 1️⃣ **Sign-Up System (SignUpServlet)**  
-- Default role = *Employee*  
-- Stores user into database  
-- Redirects to login  
-
-### 2️⃣ **Login System (LoginServlet)**  
-- Validates user credentials  
-- Creates session  
-- Redirects to pages based on role  
-
-### 3️⃣ **Software Management (Admin Only)**  
-Admins can:
-- Add new software  
-- Set access levels (Read / Write / Admin)  
-
-### 4️⃣ **Employee Access Request System (RequestServlet)**  
-Employees can:
-- Choose software  
-- Select access type  
-- Provide reason  
-
-### 5️⃣ **Manager Approval System (ApprovalServlet)**  
-Managers can:
-- View pending requests  
-- Approve or Reject  
-- Status updated in database  
+## How to run (short)
+1. Configure PostgreSQL and create a DB (see detailed steps in SETUP section).
+2. Edit DB credentials in `DBUtil.java`.
+3. `mvn clean package`
+4. Deploy generated WAR to Tomcat (`target/*.war`) or run from IDE.
+5. Open `http://localhost:8080/UAMS/` (or the webapp context you set).
 
 ---
 
-## 🗄️ Database Schema (PostgreSQL)
+## SETUP (Detailed)
+Follow the full SETUP and run guide in the repository README (below main README) — includes creating DB, running SQL, creating initial users, and running on Tomcat.
 
-### ✔ **users**
-| Column | Type |
-|--------|------|
-| id | Serial PK |
-| username | Text |
-| password | Text |
-| role | Text |
-
-### ✔ **software**
-| Column | Type |
-|--------|------|
-| id | Serial PK |
-| name | Text |
-| description | Text |
-| access_levels | Text |
-
-### ✔ **requests**
-| Column | Type |
-|--------|------|
-| id | Serial PK |
-| user_id | FK → users.id |
-| software_id | FK → software.id |
-| access_type | Text |
-| reason | Text |
-| status | Text |
-
----
-
-## 🛠️ Tech Stack
-- **Java Servlets**
-- **JSP**
-- **PostgreSQL**
-- **Apache Tomcat**
-- **Maven**
-- **HTML / CSS / JavaScript**
-
----
-
-## 📂 Project Structure
-
+## License
+MIT
