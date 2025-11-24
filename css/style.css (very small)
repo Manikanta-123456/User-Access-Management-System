@@ -1,0 +1,7 @@
+body { font-family: Arial, sans-serif; margin: 20px; }
+h1, h2 { color: #333; }
+.error { color: #a00; }
+.success { color: #0a0; }
+table { border-collapse: collapse; width: 100%; }
+table th { background: #eee; }
+button { padding: 6px 10px; }
