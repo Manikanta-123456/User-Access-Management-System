@@ -11,37 +11,55 @@ _A Java Servlet + JSP + PostgreSQL Web Application_
 ---
 
 ## 📌 Overview
-The **Village Community Management System** is a web-based platform designed for managing daily village activities such as:
-
-- Community announcements  
-- Complaints registration  
-- Complaint tracking  
-- Admin management actions  
-
-This project is built using **Java Servlets, JSP, PostgreSQL, and Maven**, deployed on **Apache Tomcat**.
+The **Village Community Management System** is a web-based platform for managing village activities: announcements, complaint registration and tracking, and admin management actions.  
+Built using **Java Servlets**, **JSP**, **PostgreSQL**, and **Maven**; deployed on **Apache Tomcat**.
 
 ---
 
-## 🖼️ Project UI Preview  
-(Add your own screenshots later)
+## 🖼️ Project UI Preview
+
+> The screenshot(s) below were generated/uploaded for this project.  
+> Local test image path (in this environment):  
+> `/mnt/data/A_screenshot_of_a_web-based_Village_Community_Syst.png`  
+> Recommended GitHub location after upload: `docs/screenshots/A_screenshot_of_a_web-based_Village_Community_Syst.png`
 
 ### 🔹 Dashboard Screen  
-![Dashboard Screenshot](A_screenshot_of_a_web-based_Village_Community_Syst.png)
+![Dashboard Screenshot](/mnt/data/A_screenshot_of_a_web-based_Village_Community_Syst.png)
+
+---
+
+## 🔹 Additional UI Screens (placeholders — replace with real images)
+> If you add more screenshots, put them in `docs/screenshots/` and update the paths below.
+
+### Login Screen  
+![Login Screenshot](/mnt/data/A_screenshot_of_a_web-based_Village_Community_Syst.png)
+
+### Register Screen  
+![Register Screenshot](/mnt/data/A_screenshot_of_a_web-based_Village_Community_Syst.png)
+
+### Admin Panel  
+![Admin Panel Screenshot](/mnt/data/A_screenshot_of_a_web-based_Village_Community_Syst.png)
 
 ---
 
 ## 🚀 Features
 
-### 👤 **User Features**
-- Register & Login  
-- View announcements  
-- Register complaints  
-- Track complaint status  
+### 👤 User Features
+- Register & Login
+- View announcements
+- Register complaints
+- Track complaint status
 
-### 🛠️ **Admin Features**
-- Post announcements  
-- View all complaints  
-- Update complaint status  
+### 🛠️ Admin Features
+- Post announcements
+- View and manage all complaints
+- Update complaint status
+
+### 🔐 Security & Misc
+- Session based authentication
+- MVC pattern with Servlets (controllers) and JSP (views)
+- PostgreSQL for persistence
+- Maven build lifecycle
 
 ---
 
